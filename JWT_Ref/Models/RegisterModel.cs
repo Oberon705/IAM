@@ -11,6 +11,10 @@ namespace JWT_Ref.Models
         [Required(ErrorMessage = "Designation is required")]
         [MaxLength(30)]
         public string Designation { get; set; } = string.Empty;
+        
+        [Required(ErrorMessage = "Designation is required")]
+        [MaxLength(50)]
+        public string MacAddress { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Username is required")]
         [MaxLength(30)]

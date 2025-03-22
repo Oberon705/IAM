@@ -9,5 +9,7 @@ namespace JWT_Ref.Models
 
         [Required(ErrorMessage = "Password is required")]
         public string? Password { get; set; }
+
+        public string MacAddress { get; set; } = string.Empty;
     }
 }

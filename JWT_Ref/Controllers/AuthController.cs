@@ -59,11 +59,14 @@ namespace JWT_Ref.Controllers
 
                 await _userManager.UpdateAsync(user);
 
+                bool isDeviceVerified = user.MacAddress == model.MacAddress;
+
                 return Ok(new
                 {
                     Token = new JwtSecurityTokenHandler().WriteToken(token),
                     RefreshToken = refreshToken,
-                    Expiration = token.ValidTo
+                    Expiration = token.ValidTo,
+                    IsDeviceVerified = isDeviceVerified
                 });
             }
             return Unauthorized();
