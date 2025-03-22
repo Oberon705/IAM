@@ -4,10 +4,16 @@ namespace JWT_Ref.Models
 {
     public class RegisterModel
     {
-        [Required(ErrorMessage = "User Full Name is required")]
-        public string? FullName { get; set; }
+        [Required(ErrorMessage = "Full Name is required")]
+        [MaxLength(150)]
+        public string FullName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "User Name is required")]
+        [Required(ErrorMessage = "Designation is required")]
+        [MaxLength(30)]
+        public string Designation { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Username is required")]
+        [MaxLength(30)]
         public string? Username { get; set; }
 
         [EmailAddress]
@@ -16,5 +22,9 @@ namespace JWT_Ref.Models
 
         [Required(ErrorMessage = "Password is required")]
         public string? Password { get; set; }
+
+        [Required(ErrorMessage = "Confirm password is required")]
+        [Compare("Password", ErrorMessage ="Confirm password not matching with password")]
+        public string? ConfirmPassword { get; set; }
     }
 }

@@ -79,6 +79,7 @@ namespace JWT_Ref.Controllers
 
             AppUser user = new()
             {
+                FullName = model.FullName,               
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.Username
